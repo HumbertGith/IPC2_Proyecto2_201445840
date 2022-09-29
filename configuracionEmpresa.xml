@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listaEmpresas>
+    <empresa id="2567j">
+        <nombre> Macdonalds </nombre>
+        <abreviatura> abreviatura </abreviatura>
+            <listaPuntosAtencion>
+                <puntoAtencion id="mac56">
+                    <nombre> macdonaldszona2 </nombre>
+                    <direccion> direccionPuntoServicio </direccion>
+                    <listaEscritorios>
+                        <escritorio id="cod123">
+                            <identificacion> idmac5666 </identificacion>
+                            <encargado> nombreEncargado </encargado>
+                        </escritorio>
+                    </listaEscritorios>
+                </puntoAtencion>
+                <puntoAtencion id="mac45">
+                    <nombre> macdonaldszona45 </nombre>
+                    <direccion> direccionPuntoServicio </direccion>
+                    <listaEscritorios>
+                        <escritorio id="cod78">
+                            <identificacion> idmac44 </identificacion>
+                            <encargado> nombreEncargado </encargado>
+                        </escritorio>
+                          <escritorio id="cod68">
+                            <identificacion> idmac55 </identificacion>
+                            <encargado> nombreEncargado </encargado>
+                        </escritorio>
+                          <escritorio id="cod88">
+                            <identificacion> idmac77 </identificacion>
+                            <encargado> nombreEncargado </encargado>
+                        </escritorio>
+                    </listaEscritorios>
+                </puntoAtencion>
+            </listaPuntosAtencion>
+            <listaTransacciones>
+                <transaccion id="operacion123">
+                    <nombre> nombreTransaccion </nombre>
+                    <tiempoAtencion> 6 </tiempoAtencion>
+                </transaccion>
+                 <transaccion id="operacion452">
+                    <nombre> nombreTransaccion </nombre>
+                    <tiempoAtencion> 8 </tiempoAtencion>
+                </transaccion>
+            </listaTransacciones>
+    </empresa>
+    <empresa id="kk56">
+        <nombre> Buerguerking </nombre>
+        <abreviatura> abreviatura </abreviatura>
+            <listaPuntosAtencion>
+                <puntoAtencion id="bk89">
+                    <nombre> macdonaldszona2 </nombre>
+                    <direccion> direccionPuntoServicio </direccion>
+                    <listaEscritorios>
+                        <escritorio id="cod167">
+                            <identificacion> identificacionEscritorio </identificacion>
+                            <encargado> nombreEncargado </encargado>
+                        </escritorio>
+                    </listaEscritorios>
+                </puntoAtencion>
+            </listaPuntosAtencion>
+            <listaTransacciones>
+                <transaccion id="codigoTransaccion">
+                    <nombre> nombreTransaccion </nombre>
+                    <tiempoAtencion> minutosAtencion </tiempoAtencion>
+                </transaccion>
+            </listaTransacciones>
+    </empresa>
+</listaEmpresas>
