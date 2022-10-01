@@ -71,7 +71,7 @@ class Metodos:
             else:
                 print(False)
     def leer_archivo_clientes(lista:Lista_simple, archivo ):
-      
+       
       
         
         with open(archivo, encoding='utf-8') as file:
@@ -85,6 +85,7 @@ class Metodos:
                         cliente1=Cliente("","")
                         confi=Confi("","","")
                         
+                       
                         codigoempresa=""
                         codigo=client.attrib.values()
                         listas=[]
@@ -113,27 +114,41 @@ class Metodos:
                         for clientes in clienteslista:
                             clientesli=clientes.findall('cliente')
                             for cliente in clientesli:
+                                
                                 for x in cliente.attrib.values():
                                     cliente1.iden=x
                                 cliente1.nombre=cliente.find('nombre').text
                                 encontrado.dato.clientes_lista.agregar_al_final(cliente1)
                                 listadoop=cliente.findall('listadoTransacciones')
+                                
                                 for listop in listadoop:
                                     lisasop=listop.findall('transaccion')
+                                    
                                     for op in lisasop:
                                         
                                         x1=""
+                                        x2=""
+                                        f=""
+                                        c=0
+                                        opcleinte=Transacciones_cliente("",0)
                                         for x in op.attrib.values():
+                                            
                                             x1=x+","+x1
                                         x2=x1.split(',')
                                         
                                         f=x2[1]
-                                        c=x2[0]
-                                        opcliente=Transacciones_cliente(f,c)
+                                       
+                                        c=int(x2[0])
+                                      
+                                        print("la operacion es : ==    ",f,c)
+        
+                                        print("el nombre es     ====",cliente1.nombre)
                                         encontrado1=encontrado.dato.clientes_lista.find(cliente1.iden)
                                         if encontrado!=None:
-
-                                            encontrado1.dato.lista_trasaciones_cliente.agregar_al_final(opcliente)
+                                           
+                                            opcleinte.iden=f
+                                            opcleinte.cantidad=c
+                                            encontrado1.dato.lista_trasaciones_cliente.agregar_al_final(opcleinte)
                    
 
             else:
@@ -154,6 +169,38 @@ class Metodos:
                 if encontrado1!=None:
                     #print("algo")
                     #print(confi.clientes_lista.tamanio)
-                    for i in range(confi.clientes_lista.tamanio):
-                        encontrado1.lista_clientes.agregar_al_final(confi.clientes_lista.get(i))
-            
+                    for i in range(confi.clientes_lista.tamanio+1):
+                        cleinte=confi.clientes_lista.get(i)
+                        encontrado1.dato.lista_clientes.agregar_al_final(cleinte)
+                    for i in range(confi.escritoriosactivos.tamanio+1):
+                        escri=confi.escritoriosactivos.get(i)
+                        encontrado2=encontrado1.dato.lista_escritorios.find(escri)
+                        if encontrado2!=None:
+                            encontrado2.dato.activo=True
+    def manualempresa(listaempresa:Lista_simple,idenempresa, nombreempresa, abrebiatura):
+        empresa=Empresa(idenempresa, nombreempresa, abrebiatura)
+        listaempresa.agregar_al_final(empresa)
+     
+    def manualtransaccion(listaempresa:Lista_simple,idenempresa,  identransacc, nombretrasac, tiempo):
+       
+        encontrado=listaempresa.find(idenempresa)
+        if encontrado!=None:
+            op=Transaccion(identransacc, nombretrasac,tiempo)
+            encontrado.dato.lista_transacciones.agregar_al_final(op)
+    def manualpunto(listaempresa:Lista_simple,idenempresa,  idenpunto, nombrepunto, direccionpunto):
+        encontrado=listaempresa.find(idenempresa)
+        if encontrado!=None:
+            punto=Punto_atencion(idenpunto,nombrepunto,direccionpunto)
+            encontrado.dato.lista_puntos_atencion.agregar_al_final(punto)
+    def manualescritorio(listaempresa:Lista_simple,idenempresa, idenpunto,  idenescritorio, idescritorio, encargado):
+        encontrado=listaempresa.find(idenempresa)
+        if encontrado!=None:
+            encontrado1= encontrado.dato.lista_puntos_atencion.find(idenpunto)
+            if encontrado1!=None:
+                 escritorio=Escritorio(idenescritorio, idescritorio,encargado)
+                 encontrado1.dato.lista_escritorios.agregar_al_final(escritorio)
+    def seleccion_punto(listaempresa:Lista_simple, idenempresa,idenpunto):
+        encontrado=listaempresa.find(idenempresa)
+        if encontrado!=None:
+            encontrado1=encontrado.dato.lista_puntos_atencion.find(idenpunto)
+            return encontrado1.dato

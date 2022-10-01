@@ -24,8 +24,8 @@
             <cliente dpi="6689758">
                 <nombre> Juan perez </nombre>
                 <listadoTransacciones>
-                    <transaccion idTransaccion="codTrans" cantidad="cantTrans"/>
-                    <transaccion idTransaccion="codTrans" cantidad="cantTrans"/>
+                    <transaccion idTransaccion="operacion85" cantidad="3"/>
+                    <transaccion idTransaccion="operacion7" cantidad="2"/>
                 </listadoTransacciones>
             </cliente>           
         </listadoClientes>

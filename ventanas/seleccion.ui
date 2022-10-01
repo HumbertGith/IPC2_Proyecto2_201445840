@@ -158,7 +158,7 @@ color:rgb(0,0,0);</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../proyetos python/prueba cursos/base-de-datos.png</normaloff>../../proyetos python/prueba cursos/base-de-datos.png</iconset>
+         <normaloff>../imagenes/base-de-datos.png</normaloff>../imagenes/base-de-datos.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -187,7 +187,7 @@ color:rgb(0,0,0);</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../proyetos python/prueba cursos/archivo.png</normaloff>../../proyetos python/prueba cursos/archivo.png</iconset>
+         <normaloff>../imagenes/archivo.png</normaloff>../imagenes/archivo.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -213,7 +213,7 @@ color:rgb(0,0,0);</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../proyetos python/prueba cursos/encriptado.png</normaloff>../../proyetos python/prueba cursos/encriptado.png</iconset>
+         <normaloff>../imagenes/encriptado.png</normaloff>../imagenes/encriptado.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -239,7 +239,7 @@ color:rgb(0,0,0);</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../Downloads/gui_python_pyqt5-main/gui_python_pyqt5-main/Menu Lateral desplegable/encriptado.png</normaloff>../../../Downloads/gui_python_pyqt5-main/gui_python_pyqt5-main/Menu Lateral desplegable/encriptado.png</iconset>
+         <normaloff>../imagenes/encriptado.png</normaloff>../imagenes/encriptado.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -265,7 +265,7 @@ color:rgb(0,0,0);</string>
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../proyetos python/prueba cursos/pngfind.com-back-png-1934895.png</normaloff>../../proyetos python/prueba cursos/pngfind.com-back-png-1934895.png</iconset>
+         <normaloff>../imagenes/pngfind.com-back-png-1934895.png</normaloff>../imagenes/pngfind.com-back-png-1934895.png</iconset>
        </property>
        <property name="iconSize">
         <size>

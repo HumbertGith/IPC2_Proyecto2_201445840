@@ -141,7 +141,7 @@ font: 75 11pt &quot;Arial Black&quot;;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../IPC2_Proyecto1_201445840/archivo.png</normaloff>../../IPC2_Proyecto1_201445840/archivo.png</iconset>
+         <normaloff>../imagenes/archivo.png</normaloff>../imagenes/archivo.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -170,7 +170,7 @@ font: 75 11pt &quot;Arial Black&quot;;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../IPC2_Proyecto1_201445840/inteligencia-artificial.png</normaloff>../../IPC2_Proyecto1_201445840/inteligencia-artificial.png</iconset>
+         <normaloff>../imagenes/inteligencia-artificial.png</normaloff>../imagenes/inteligencia-artificial.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -196,7 +196,7 @@ font: 75 11pt &quot;Arial Black&quot;;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../IPC2_Proyecto1_201445840/encriptado.png</normaloff>../../IPC2_Proyecto1_201445840/encriptado.png</iconset>
+         <normaloff>../imagenes/encriptado.png</normaloff>../imagenes/encriptado.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -313,7 +313,7 @@ background-color:red;
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../IPC2_Proyecto1_201445840/cerrar.png</normaloff>../../IPC2_Proyecto1_201445840/cerrar.png</iconset>
+         <normaloff>../imagenes/cerrar.png</normaloff>../imagenes/cerrar.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -494,7 +494,7 @@ color:rgb(255, 255, 255)
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../IPC2_Proyecto1_201445840/imagen_dos.png</pixmap>
+      <pixmap>../imagenes/imagen_dos.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>false</bool>
