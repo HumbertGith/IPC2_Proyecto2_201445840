@@ -36,19 +36,11 @@
             <listaTransacciones>
                 <transaccion id="operacion123">
                     <nombre> nombreTransaccion </nombre>
-                    <tiempoAtencion> 0.5 </tiempoAtencion>
+                    <tiempoAtencion> 6 </tiempoAtencion>
                 </transaccion>
                  <transaccion id="operacion452">
                     <nombre> nombreTransaccion </nombre>
-                    <tiempoAtencion> 0.75 </tiempoAtencion>
-                </transaccion>
-                <transaccion id="operacion52">
-                    <nombre> retiro </nombre>
-                    <tiempoAtencion> 2 </tiempoAtencion>
-                </transaccion>
-                <transaccion id="operacion89">
-                    <nombre> deposito </nombre>
-                    <tiempoAtencion> 2 </tiempoAtencion>
+                    <tiempoAtencion> 8 </tiempoAtencion>
                 </transaccion>
             </listaTransacciones>
     </empresa>

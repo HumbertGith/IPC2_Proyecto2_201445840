@@ -1,3 +1,4 @@
+import re
 from xml.dom import minidom
 import xml.etree.ElementTree as ET
 from archivos_py.clases import *
@@ -82,7 +83,7 @@ class Metodos:
                     #encontrado2:Nodo
                     #encontrado1:Nodo
                     for client in lst_clientes:
-                        cliente1=Cliente("","")
+                        
                         confi=Confi("","","")
                         
                        
@@ -109,12 +110,13 @@ class Metodos:
                                   #print("la llave es :" ,x)
                                   encontrado=lista.find(confi.iden)  
                                   if encontrado!=None:
-                                    encontrado.dato.escritoriosactivos.agregar_al_final(x)
+                                    encontrado.dato.escritoriosactivos.agregar_al_final1(x)
                         clienteslista=client.findall('listadoClientes')
                         for clientes in clienteslista:
                             clientesli=clientes.findall('cliente')
+                            
                             for cliente in clientesli:
-                                
+                                cliente1=Cliente("","")
                                 for x in cliente.attrib.values():
                                     cliente1.iden=x
                                 cliente1.nombre=cliente.find('nombre').text
@@ -170,13 +172,15 @@ class Metodos:
                     #print("algo")
                     #print(confi.clientes_lista.tamanio)
                     for i in range(confi.clientes_lista.tamanio+1):
-                        cleinte=confi.clientes_lista.get(i)
-                        encontrado1.dato.lista_clientes.agregar_al_final(cleinte)
+                        cleinte=confi.clientes_lista.pop()
+                        if cleinte!=None:
+                            encontrado1.dato.lista_clientes.agregar_al_final(cleinte)
                     for i in range(confi.escritoriosactivos.tamanio+1):
                         escri=confi.escritoriosactivos.get(i)
                         encontrado2=encontrado1.dato.lista_escritorios.find(escri)
                         if encontrado2!=None:
                             encontrado2.dato.activo=True
+                            encontrado1.dato.lista_activos.agregar_al_final(encontrado2.dato)
     def manualempresa(listaempresa:Lista_simple,idenempresa, nombreempresa, abrebiatura):
         empresa=Empresa(idenempresa, nombreempresa, abrebiatura)
         listaempresa.agregar_al_final(empresa)
@@ -201,6 +205,65 @@ class Metodos:
                  encontrado1.dato.lista_escritorios.agregar_al_final(escritorio)
     def seleccion_punto(listaempresa:Lista_simple, idenempresa,idenpunto):
         encontrado=listaempresa.find(idenempresa)
+        iden=encontrado.dato.iden
         if encontrado!=None:
             encontrado1=encontrado.dato.lista_puntos_atencion.find(idenpunto)
+            encontrado1.dato.idenempresa=iden
             return encontrado1.dato
+    def mostrarEmpresas(listaempresa:Lista_simple):
+        total=""
+        total1=""
+        total2=""
+        for i in range(listaempresa.tamanio+1):
+            empresa=listaempresa.get(i)
+            total=total +"Empresa  \n" +"Id:   "+empresa.iden+"    "+"Nombre:  "+empresa.nombre+"\n"
+            for i in range( empresa.lista_puntos_atencion.tamanio+1):
+                punto=empresa.lista_puntos_atencion.get(i)
+                total=total+"Punto de Atencion  \n"+"Id:   "+punto.iden+"    "+"Nombre:  "+punto.nombre+"\n"
+        
+        return total
+    def desencolarcliente(punto:Punto_atencion):
+        escritorio:Escritorio
+        cliente:Cliente
+        for i in range(punto.lista_activos.tamanio+1):
+            escritorio=punto.lista_activos.get(i)
+            if escritorio.activo==True and escritorio.ocupado==False:
+                cliente=punto.lista_clientes.pop()
+                escritorio.ocupado=True
+                if cliente!=None:
+                    print(cliente.iden, cliente.nombre) 
+                    escritorio.cliente=cliente
+                    cliente.lista_trasaciones_cliente.imprimir_lista("iden")
+                    print(escritorio.cliente.iden)
+
+    def atender_cliente(punto:Punto_atencion, listaempresa:Lista_simple):
+        escritorio:Escritorio
+        operacion:Transacciones_cliente
+        tiempoop=0
+        for i in range(punto.lista_activos.tamanio+1):
+            escritorio=punto.lista_activos.get(i)
+            if escritorio.activo==True and escritorio.ocupado==True:
+                
+                for i in range(escritorio.cliente.lista_trasaciones_cliente.tamanio+1):
+                    operacion=escritorio.cliente.lista_trasaciones_cliente.get(i)
+
+                    encontrado=listaempresa.find(punto.idenempresa)
+                   
+                    if encontrado!=None:
+                        encontrado1= encontrado.dato.lista_transacciones.find(operacion.iden)
+                        if encontrado1!=None:
+                            minutos=encontrado1.dato.minutos
+                            op=operacion.cantidad
+                            tiempoop=float(minutos)*op+tiempoop
+                            escritorio.ocupado=False
+                iden=escritorio.cliente.iden
+                nombre=escritorio.cliente.nombre
+                escritorio.listaatendidos.agregar_al_final(Atendido(iden,nombre,tiempoop))
+                escritorio.cliente=Cliente("","")
+                break
+
+        return tiempoop
+        
+
+
+            

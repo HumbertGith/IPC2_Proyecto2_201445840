@@ -150,7 +150,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnmanual">
+    <widget class="QPushButton" name="btnempresa">
      <property name="geometry">
       <rect>
        <x>490</x>
@@ -222,7 +222,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Crear Empresa</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente">
+    <widget class="QLineEdit" name="lineidempresa">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -282,7 +282,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>nombre</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_2">
+    <widget class="QLineEdit" name="lineNombreempresa">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -317,7 +317,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Abreviatura</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_3">
+    <widget class="QLineEdit" name="lineabreviatura">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -377,7 +377,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>nombre</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_7">
+    <widget class="QLineEdit" name="linedireccion">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -412,7 +412,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>id</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_8">
+    <widget class="QLineEdit" name="lineidpunto">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -447,7 +447,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Direccion</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_9">
+    <widget class="QLineEdit" name="linenombrepunto">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -482,7 +482,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>id escritorio</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_10">
+    <widget class="QLineEdit" name="linenombreencargado">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -517,7 +517,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>id</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_11">
+    <widget class="QLineEdit" name="lineidescritorio">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -552,7 +552,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Nombre encargado</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_12">
+    <widget class="QLineEdit" name="lineid2escritorio">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -587,7 +587,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Crear Escritorio</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_13">
+    <widget class="QLineEdit" name="lineidtransaccion">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -597,7 +597,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       </rect>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_14">
+    <widget class="QLineEdit" name="linenombretransaccion">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -682,7 +682,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>tiempo</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEditpaciente_15">
+    <widget class="QLineEdit" name="linetiempo">
      <property name="geometry">
       <rect>
        <x>240</x>
@@ -717,7 +717,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       <string>Crear Transaccion</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnmanual_3">
+    <widget class="QPushButton" name="btnpunto">
      <property name="geometry">
       <rect>
        <x>490</x>
@@ -764,7 +764,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnmanual_4">
+    <widget class="QPushButton" name="btnescritorio">
      <property name="geometry">
       <rect>
        <x>490</x>
@@ -811,7 +811,7 @@ font: 75 11pt &quot;Arial Black&quot;;
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnmanual_5">
+    <widget class="QPushButton" name="btntransacion">
      <property name="geometry">
       <rect>
        <x>490</x>

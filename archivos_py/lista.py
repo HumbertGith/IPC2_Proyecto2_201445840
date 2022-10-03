@@ -18,7 +18,7 @@ class Lista_simple():
         return self.cabeza == None
 
     # Método para agregar elementos al final de la linked list
-    def agregar_al_final(self, dato):
+    def agregar_al_final1(self, dato):
         if not self.cabeza:
             self.cabeza = Nodo(dato=dato)
             return
@@ -27,7 +27,30 @@ class Lista_simple():
             actual = actual.siguiente
         actual.siguiente = Nodo(dato=dato)
         self.tamanio=self.tamanio+1
-    
+    def agregar_al_final(self, dato):
+        if not self.cabeza:
+            self.cabeza = Nodo(dato=dato)
+            return
+        elif self.encontrado(dato.iden) == False :
+            actual = self.cabeza
+            while actual.siguiente:
+                actual = actual.siguiente
+            actual.siguiente = Nodo(dato=dato)
+            self.tamanio=self.tamanio+1
+    def encontrado(self, e):
+       try: 
+         
+        encontrar = False
+        temp = self.cabeza
+        while temp != None:
+            if e==temp.dato.iden :
+                encontrar = True
+            temp = temp.siguiente      
+        return encontrar
+
+
+       except:
+        print("algo")
     # Método para eleminar nodos
     def borrar_nodo(self, key):
         actual = self.cabeza
@@ -74,4 +97,11 @@ class Lista_simple():
         for  j in range(i) :
             temp=temp.siguiente
         
+        return temp.dato
+    def pop(self):
+        if self.cabeza is None:
+            return None
+
+        temp = self.cabeza
+        self.cabeza = self.cabeza.siguiente
         return temp.dato

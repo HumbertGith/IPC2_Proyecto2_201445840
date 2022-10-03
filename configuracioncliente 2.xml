@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<listadoInicial>
+    <configInicial id="confi78" idEmpresa="2567j" idPunto="mac45">
+        <escritoriosActivos>
+                <escritorio idEscritorio="cod88"/>
+                
+        </escritoriosActivos>
+        <listadoClientes>
+            <cliente dpi="566323">
+                <nombre> maria lopez </nombre>
+                <listadoTransacciones>
+                    <transaccion idTransaccion="operacion123" cantidad="6"/>
+                    <transaccion idTransaccion="operacion452" cantidad="8"/>
+                </listadoTransacciones>
+            </cliente>
+            <cliente dpi="894569">
+                <nombre> jorje perez </nombre>
+                <listadoTransacciones>
+                    <transaccion idTransaccion="operacion52" cantidad="6"/>
+                    <transaccion idTransaccion="operacion89" cantidad="8"/>
+                </listadoTransacciones>
+            </cliente>               
+        </listadoClientes>
+    </configInicial>
+    <configInicial id="confi96" idEmpresa="2567j" idPunto="mac45">
+        <escritoriosActivos>
+                <escritorio idEscritorio="cod88"/>
+                
+        </escritoriosActivos>
+        <listadoClientes>
+            <cliente dpi="96327514">
+                <nombre> aron  lopez </nombre>
+                <listadoTransacciones>
+                    <transaccion idTransaccion="operacion123" cantidad="6"/>
+                    <transaccion idTransaccion="operacion452" cantidad="8"/>
+                </listadoTransacciones>
+            </cliente>             
+        </listadoClientes>
+    </configInicial>    
+</listadoInicial>

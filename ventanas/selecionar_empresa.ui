@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>300</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Editar_curso</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>300</height>
+    </size>
+   </property>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>400</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>400</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>300</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+background-color: rgb(0, 0, 0);
+}
+
+
+
+QLabel{
+color: rgb(18, 82, 200);
+
+font: 75 12pt &quot;Arial Black&quot;;
+	
+}
+
+QLabel:hover{
+color: white;
+
+
+font: 75 12pt &quot;Arial Black&quot;;
+}
+
+QLineEdit{
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 75 12pt &quot;Arial&quot;;
+	
+}
+
+QTextEdit{
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 75 12pt &quot;Arial&quot;;
+	
+}
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="bt_regresar">
+     <property name="geometry">
+      <rect>
+       <x>630</x>
+       <y>190</y>
+       <width>141</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Regresar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../IPC2_Proyecto1_201445840/pngfind.com-back-png-1934895.png</normaloff>../../IPC2_Proyecto1_201445840/pngfind.com-back-png-1934895.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>0</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Mostrar empresa y puntos de atencion</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEditempresa">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>130</y>
+       <width>231</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnmostrar">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>70</y>
+       <width>81</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Mostrar</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>200</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Codigo Empresa</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditinfo">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>591</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnseleccion">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>220</y>
+       <width>141</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Seleccionar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../IPC2_Proyecto1_201445840/escritura.png</normaloff>../../IPC2_Proyecto1_201445840/escritura.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>170</y>
+       <width>200</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Codigo Punto Atencion</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEditpunto">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>180</y>
+       <width>231</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
