@@ -22,7 +22,9 @@ class Punto_atencion:
     lista_escritorios:Lista_simple
     lista_clientes: Lista_simple
     lista_activos=Lista_simple
+    lista_inactivos:Lista_simple
     idenempresa:string
+    tiempopromedio:float
     def __init__(self,id, nombre,direccion):
         self.iden = id
         self.nombre = nombre
@@ -30,16 +32,20 @@ class Punto_atencion:
         self.lista_escritorios = Lista_simple()
         self.lista_clientes = Lista_simple()
         self.lista_activos=Lista_simple()
+        self.lista_inactivos=Lista_simple()
         self.idenempresa=""
+        self.tiempopromedio=0.0
     
 class Cliente:
     iden:string
     nombre:string
+    tiempoespera:float
     lista_trasaciones_cliente:Lista_simple
     def __init__(self,dpi, nombre):
         self.iden = dpi
         self.nombre = nombre
         self.lista_trasaciones_cliente=Lista_simple()
+        self.tiempoespera=0.0
 class Escritorio:
     iden:string
     id_escritorio:string
@@ -48,6 +54,12 @@ class Escritorio:
     activo:bool
     ocupado:bool
     listaatendidos:Lista_simple
+    tiempo_promedio:float
+    tiempominimo:float
+    tiempomax:float
+    tiempo_promedioespera:float
+    tiempominimoespera:float
+    tiempomaxespera:float
     def __init__(self,id, id_escritorio,nombre_encargado):
         self.iden = id
         self.id_escritorio = id_escritorio
@@ -56,6 +68,12 @@ class Escritorio:
         self.ocupado=False
         self.cliente=Cliente("","")
         self.listaatendidos=Lista_simple()
+        self.tiempo_promedio=0.0
+        self.tiempominimo=0.0
+        self.tiempomax=0.0
+        self.tiempo_promedioespera=0.0
+        self.tiempominimoespera=0.0
+        self.tiempomaxespera=0.0
 class Transaccion:
     iden:string
     nombre:string
@@ -88,8 +106,10 @@ class Atendido:
     iden:string
     nombre:string
     tiempo:float
-    def __init__(self,iden, nombre, tiempo):
+    tiempoespera:float
+    def __init__(self,iden, nombre, tiempo, tiempoespera):
             self.iden = iden
             self.nombre = nombre
             self.tiempo=tiempo
+            self.tiempoespera=tiempoespera
          

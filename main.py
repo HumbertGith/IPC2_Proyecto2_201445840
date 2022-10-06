@@ -1,7 +1,9 @@
 
+from pydoc import cli
+import threading
 import time
 from tkinter import filedialog, messagebox
-from archivos_py.clases import Punto_atencion
+from archivos_py.clases import Escritorio, Punto_atencion
 from archivos_py.lista import Lista_simple
 from archivos_py.metodos import Metodos
 from PyQt5 import QtCore
@@ -14,11 +16,25 @@ menu = uic.loadUi("ventanas/menu.ui")
 config = uic.loadUi("ventanas/seleccion.ui")
 manual = uic.loadUi("ventanas/carga_manual.ui")
 seleccion=uic.loadUi("ventanas/selecionar_empresa.ui")
+manejo=uic.loadUi("ventanas/manejo_puntos.ui")
+estadopunto=uic.loadUi("ventanas/estado_punto.ui")
+cliente=uic.loadUi("ventanas/solicitud_cliente.ui")
+simular=uic.loadUi("ventanas/simular_punto.ui")
 
 lista_empresas=Lista_simple()
 listaconfi=Lista_simple()
 punto=Punto_atencion("","","")
 metodo= Metodos
+inicio=time.time()
+
+menu.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+config.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+seleccion.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+manejo.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+estadopunto.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+cliente.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+#simular.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+manual.setWindowFlag(QtCore.Qt.FramelessWindowHint)
 
 #metodos de navegacion entre ventanas
 def cerrar_v():
@@ -26,6 +42,22 @@ def cerrar_v():
 def ir_config():
        menu.hide()
        config.show()
+def ir_manejo():
+       menu.hide()
+       manejo.show()
+def ir_manejo_estadopunto():
+       manejo.hide()
+       estadopunto.show()
+def ir_manejo_solicitudcliente():
+       manejo.hide()
+       cliente.show()
+def ir_cliente_manejo():
+       
+       cliente.hide()
+       manejo.show()
+def ir_estadopunto_manejo():
+       estadopunto.hide()
+       manejo.show()
 def ir_seleccion():
        menu.hide()
        seleccion.show()
@@ -38,6 +70,15 @@ def ir_manual():
 def ir_selecion_a_menu():
        seleccion.hide()
        menu.show()
+def ir_manejo_a_menu():
+       manejo.hide()
+       menu.show()
+def ir_manejo_a_simular():
+       manejo.hide()
+       simular.show()
+def ir_simular_a_manejo():
+       simular.hide()
+       manejo.show()
 def ir_de_manual_a_conf():
        manual.hide()
        config.show()
@@ -53,6 +94,7 @@ def limpiar():
     messagebox.showerror("error","error de ejecicion")  
 def cargarEmpresa():
        try:
+
               file = filedialog.askopenfilename(title="abrir", filetypes=(("xml files","*.xml"),("all files", "*.*")))
               metodo.leer_archivo_empresas(lista_empresas,file)
               messagebox.showinfo("info","Empresa agregada con exito")
@@ -121,25 +163,176 @@ def obtenerpuntoAtencion():
               punto=metodo.seleccion_punto(lista_empresas,idenempresa,idpunto)
               punto.lista_escritorios.imprimir_lista("activo")
               punto.lista_clientes.imprimir_lista("nombre")
-              metodo.desencolarcliente(punto)
+             
               punto.lista_escritorios.imprimir_lista("ocupado")
               
               punto.lista_clientes.imprimir_lista("nombre")
-              inicio =time.time()
-              tiempo=metodo.atender_cliente(punto,lista_empresas)
-              time.sleep(tiempo)
-              final=time.time()
-              print("cliente atendido")
-              print(final-inicio)
-              for i in range(punto.lista_escritorios.tamanio+1):
-                     escri=punto.lista_escritorios.get(i)
-                     escri.listaatendidos.imprimir_lista("iden")
+              metodo.moverescritorioinactivo(punto)
+              #inicio =time.time()
+              #tiempo=metodo.atender_cliente(punto,lista_empresas)
+              
+              #final=time.time()
+             
+              #print(final-inicio)
+              
        except:
               messagebox.showerror("error","No se pueden mostrar datos vacios")
+def activar_escri():
+       try:
+              metodo.activar_escritorios(punto)
+              messagebox.showinfo("info","escritorio activado correctamente")
+       except:
+              messagebox.showerror("error","Error de activacion de escritorio") 
+def desactivar_escri():
+       try:
+              metodo.desactivar_escritorios(punto)
+              messagebox.showinfo("info","escritorio desactivado correctamente")
+              print("****************************")
+              punto.lista_activos.imprimir_lista("activo")
+              punto.lista_inactivos.imprimir_lista("iden")
+       except:
+              messagebox.showerror("error","Error de desactivacion de escritorio") 
+def atendercliente():
+       inicio=time.time()
+       tiempo=metodo.atender_cliente(punto,lista_empresas)
+       time.sleep(tiempo)
+       final=time.time()
+       messagebox.showinfo("info","Cliente atendido correctamente su tiempo fue:    "+str(final-inicio))
+      
+def atenderclientebtn():
+       try: 
+              fin= time.time()
+              espera=fin-inicio  
+              escri:Escritorio
+              #punto.lista_clientes.graficar("cliente")
+              metodo.desencolarcliente(punto,espera)
+              #punto.lista_clientes.graficar("cliente")
+              #punto.lista_activos.graficarescritorios("Escritorio")
+              for i in range(punto.lista_activos.size()):
+                     escri=punto.lista_activos.get(i)
+                     print("*************************************")
+                     escri.cliente.lista_trasaciones_cliente.imprimir_lista("iden")
+                     punto.lista_activos.imprimir_lista("ocupado")
+                     #escri.listaatendidos.graficar("ClienteEscritorio")
+                     
+              for i in range(punto.lista_activos.size()):
+                     escri=punto.lista_activos.get(i)
+                     if escri.activo==True and escri.ocupado==True:
+                           
+                            timer = threading.Timer(1.0, atendercliente)
+                            timer.start()
+                     
+              
+                      
+       except:
+              messagebox.showerror("error","Error en la atencion del cliente") 
+def calculo_porescritorio():
+       try:
+              cadena=metodo.calculo_atencion(punto)
+              cadena2=metodo.calculo_atenciondesactivado(punto)
+              estadopunto.textEditinfo.setPlainText(str(cadena+cadena2))
+       except:
+              messagebox.showerror("error","De calculo de atencion") 
+def calculo_porpunto():
+       try:
+              estadopunto.labelpunto.setText("Punto atencion  "+str(punto.iden))
+              estadopunto.labelescriactivo.setText("Escritorios activos            "+str(metodo.devolveractivos(punto)))
+              estadopunto.labelescridesactivo.setText("Escritorios Inactivos            "+str(metodo.devolverdesactivos(punto)))
+              estadopunto.labelclienteespera.setText("Clientes en espera            "+str(punto.lista_clientes.size()))
+              promedio, maxi, mini=metodo.sumaresperapopunto(punto)
+              estadopunto.labeltiempopromedioespera.setText("Tiempo promedio de espera            "+str(promedio))
+              estadopunto.labeltiempomaxespera.setText("Tiempo max de espera             "+str(maxi))
+              estadopunto.labeltiempominespera.setText("Tiempo min espera             "+str(mini))
+              promedioatencion,maxiatencion,ministencion=metodo.sumaratencionporpunto(punto)
+              estadopunto.labeltiempopromedioatencion.setText("Tiempo promedio de atencion            "+str(promedioatencion))
+              estadopunto.labeltiempomaxatencion.setText("Tiempo max atencion             "+str(maxiatencion))
+              estadopunto.labeltiempominatencion.setText("Tiempo min atencion             "+str(ministencion))
+              messagebox.showinfo("info","Calculo correcto")
+       except:
+              messagebox.showerror("error","De calculo de atencion") 
+def mostraropempresa():
+       try:
+              #cadena=metodo.calculo_atencion(punto)
+              cadena=metodo.mostraropempresa(punto,lista_empresas)
+              cliente.textEditinfo.setPlainText(str(cadena))
+       except:
+              messagebox.showerror("error","No hay Transacciones por mostrar") 
+def agregarclientemanual():
+       try:
+              iden= cliente.lineEditDPI.text()
+              nombre=cliente.lineEditnombre.text()
        
+              metodo.agregarclientemanual(punto,iden,nombre)
+              messagebox.showinfo("info","cliente agregado de forma  correcta"+"   Debes esperar "+str(punto.tiempopromedio))
+       except:
+              messagebox.showerror("error","Error al agregar cliente")  
+def agregaropclientemanual():
+       try:
+              dpi= cliente.lineEditDPI.text()
+              iden= cliente.lineEditidtransaccion.text()
+              numero=cliente.lineEditnumero.text()
+       
+              metodo.agregaropclientemanual(punto,dpi,iden,int(numero))
+              messagebox.showinfo("info","Opracion agregada correctamente ")
+       except:
+              messagebox.showerror("error","la opracion no corresponde al cliente o no exixte") 
+
+def calculo_porescritoriosimular():
+       try:
+              cadena=metodo.calculo_atencionsimular(punto)
+              cadena2=metodo.calculo_atenciondesactivadosimular(punto)
+              simular.textEditinfo.setPlainText(str(cadena+cadena2))
+              for i in range(punto.lista_activos.size()):
+                            escri=punto.lista_activos.get(i)
+                            escri.listaatendidos.graficarclientesescritoio("clientesescri")
+       except:
+              messagebox.showerror("error","De calculo de atencion")   
+def calculo_porpuntosimular():
+       try:
+              simular.labelpunto.setText("Punto atencion  "+str(punto.iden))
+              simular.labelescriactivo.setText("Escritorios activos            "+str(metodo.devolveractivos(punto)))
+              simular.labelescridesactivo.setText("Escritorios Inactivos            "+str(metodo.devolverdesactivos(punto)))
+              simular.labelclienteespera.setText("Clientes en espera            "+str(punto.lista_clientes.size()))
+              promedio, maxi, mini=metodo.sumaresperapopunto(punto)
+              simular.labeltiempopromedioespera.setText("Tiempo promedio de espera            "+str(promedio))
+              simular.labeltiempomaxespera.setText("Tiempo max de espera             "+str(maxi))
+              simular.labeltiempominespera.setText("Tiempo min espera             "+str(mini))
+              promedioatencion,maxiatencion,ministencion=metodo.sumaratencionporpunto(punto)
+              simular.labeltiempopromedioatencion.setText("Tiempo promedio de atencion            "+str(promedioatencion))
+              simular.labeltiempomaxatencion.setText("Tiempo max atencion             "+str(maxiatencion))
+              simular.labeltiempominatencion.setText("Tiempo min atencion             "+str(ministencion))
+              messagebox.showinfo("info","Calculo correcto")
+       except:
+              messagebox.showerror("error","De calculo de atencion")
+
+def atenderclientebtnsimular():
+       try: 
+              
+                     #punto.lista_clientes.graficar("cliente")
+              
+                     fin= time.time()
+                     espera=fin-inicio  
+                     escri:Escritorio
+                     punto.lista_clientes.graficar("cliente")
+                     metodo.desencolarcliente(punto,espera)
+                     punto.lista_clientes.graficar("cliente")
+                     punto.lista_activos.graficarescritorios("Escritorio")
+                            
+                            
+                     for i in range(punto.lista_activos.size()):
+                            escri=punto.lista_activos.get(i)
+                            if escri.activo==True and escri.ocupado==True:
+                            
+                                   timer = threading.Timer(1.0, atendercliente)
+                                   timer.start()
+                                   
+                     
+       except:
+              messagebox.showerror("error","Error en la atencion del cliente")  
 menu.bt_cerrar.clicked.connect(cerrar_v)            
 menu.bt_conf.clicked.connect(ir_config)
 menu.bt_seleccionar.clicked.connect(ir_seleccion)
+menu.btn_manejo.clicked.connect(ir_manejo)
 
 config.bt_regresar.clicked.connect(ir_de_conf_a_menu)
 config.bt_limpiar.clicked.connect(limpiar)
@@ -157,5 +350,32 @@ seleccion.bt_regresar.clicked.connect(ir_selecion_a_menu)
 seleccion.btnmostrar.clicked.connect(mostrardatosempresa)
 seleccion.btnseleccion.clicked.connect(obtenerpuntoAtencion)
 
+manejo.bt_regresar.clicked.connect(ir_manejo_a_menu)
+manejo.bt_activar.clicked.connect(activar_escri)
+manejo.bt_desactivar.clicked.connect(desactivar_escri)
+manejo.btn_atender.clicked.connect(atenderclientebtn)
+manejo.bt_verestado.clicked.connect(ir_manejo_estadopunto)
+manejo.btn_solicitud.clicked.connect(ir_manejo_solicitudcliente)
+manejo.btn_simular.clicked.connect(ir_manejo_a_simular)
+
+estadopunto.bt_regresar.clicked.connect(ir_estadopunto_manejo)
+estadopunto.btnporescritorio.clicked.connect(calculo_porescritorio)
+estadopunto.btnempresa.clicked.connect(calculo_porpunto)
+
+cliente.bt_regresar.clicked.connect(ir_cliente_manejo)
+cliente.btn_mostrar.clicked.connect(mostraropempresa)
+cliente.btncliente.clicked.connect(agregarclientemanual)
+cliente.btntransaccion.clicked.connect(agregaropclientemanual)
+
+simular.bt_regresar.clicked.connect(ir_simular_a_manejo)
+simular.btnempresa.clicked.connect(calculo_porpuntosimular)
+simular.btnporescritorio.clicked.connect(calculo_porescritoriosimular)
+simular.btnsimular.clicked.connect(atenderclientebtnsimular)
 menu.show()
 app.exec()
+for i in range(punto.lista_activos.size()):
+              escri=punto.lista_activos.get(i)
+              print("*************************************")
+              escri.listaatendidos.imprimir_lista2("iden","nombre","tiempoespera")
+              #escri.listaatendidos.graficar("ClienteEscritorio")
+              print("***")

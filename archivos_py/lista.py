@@ -1,3 +1,6 @@
+import re
+import graphviz
+
 class Nodo():
     
     def __init__(self, dato = None, siguiente = None):
@@ -82,6 +85,11 @@ class Lista_simple():
         while nodo != None:
             print( nodo.dato ," => ")
             nodo = nodo.siguiente
+    def imprimir_lista2(self,llave,llave1, llave2):
+        nodo = self.cabeza
+        while nodo != None:
+            print( getattr(nodo.dato, llave)  ," => ", getattr(nodo.dato, llave1)," => ",getattr(nodo.dato, llave2)," => ")
+            nodo = nodo.siguiente
     def find(self,iden):
            #debido a que el nombre viene de tipo objeto, es necesario pasarlo a String
           aux=self.cabeza
@@ -105,3 +113,73 @@ class Lista_simple():
         temp = self.cabeza
         self.cabeza = self.cabeza.siguiente
         return temp.dato
+    def size(self):
+        contador = 0
+        temp = self.cabeza 
+        while temp is not None:
+            contador += 1
+            temp = temp.siguiente
+
+        return contador
+    def popultimo(self):
+        temp:Nodo
+        if self.cabeza is None:
+            return None
+        else:
+            temp=self.cabeza
+            while temp.siguiente.siguiente is not None:
+                temp=temp.siguiente
+            escri=temp.siguiente.dato
+            temp.siguiente=None
+            return escri
+    def graficar(self, nombre):
+        counter = 0    #grafica para mostrar con cola.graficar
+        print(self.__class__.__name__)
+        dot = graphviz.Digraph(comment=self.__class__.__name__+str(counter), format='png')
+        dot.attr(rankdir='LR')
+        dot.attr('node', shape='box')
+        temp = self.cabeza
+        
+        while temp is not None:
+            dot.node(str(counter), str("El cliente No:   "+str(counter)+"\n"+"Con id :  "+temp.dato.iden+"\n"+"Nombre: "+temp.dato.nombre))
+            temp = temp.siguiente
+            if temp is not None:
+                dot.edge(str(counter), str(counter + 1))
+
+            counter += 1
+
+        dot.view('./graficas/clientes/'+nombre+str(counter))
+    def graficarescritorios(self, nombre):
+        counter = 0    #grafica para mostrar con cola.graficar
+        print(self.__class__.__name__)
+        dot = graphviz.Digraph(comment=self.__class__.__name__, format='png')
+        dot.attr(rankdir='LR')
+        dot.attr('node', shape='box')
+        temp = self.cabeza
+        
+        while temp is not None:
+            dot.node(str(counter), str("Escritorio No:   "+str(counter)+"\n"+"Con id :  "+temp.dato.iden+"\n"+"Nombre encargado: "+temp.dato.nombre_encargado))
+            temp = temp.siguiente
+            if temp is not None:
+                dot.edge(str(counter), str(counter + 1))
+
+            counter += 1
+
+        dot.view('./graficas/escritorio/'+nombre+str(counter))           
+    def graficarclientesescritoio(self, nombre):
+        counter = 0    #grafica para mostrar con cola.graficar
+        print(self.__class__.__name__)
+        dot = graphviz.Digraph(comment=self.__class__.__name__+str(counter), format='png')
+        dot.attr(rankdir='LR')
+        dot.attr('node', shape='box')
+        temp = self.cabeza
+        
+        while temp is not None:
+            dot.node(str(counter), str("El cliente No:   "+str(counter)+"\n"+"Con id :  "+temp.dato.iden+"\n"+"Nombre: "+temp.dato.nombre+"\n"+"Tiempo de atencion:   "+ str(temp.dato.tiempo)+"\n"+"Tiempo de espera:    "+ str(temp.dato.tiempoespera)))
+            temp = temp.siguiente
+            if temp is not None:
+                dot.edge(str(counter), str(counter + 1))
+
+            counter += 1
+
+        dot.view('./graficas/clientesescritorio/'+nombre+str(counter))

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::DefaultContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Editar_curso</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="maximumSize">
+    <size>
+     <width>800</width>
+     <height>600</height>
+    </size>
+   </property>
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>600</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame{
+background-color: rgb(0, 0, 0);
+}
+
+
+
+QLabel{
+color: rgb(18, 82, 200);
+
+font: 75 12pt &quot;Arial Black&quot;;
+	
+}
+
+QLabel:hover{
+color: white;
+
+
+font: 75 12pt &quot;Arial Black&quot;;
+}
+
+QLineEdit{
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 75 12pt &quot;Arial&quot;;
+	
+}
+
+QTextEdit{
+background-color: rgb(0, 0, 0);
+color: rgb(255, 255, 255);
+
+font: 75 12pt &quot;Arial&quot;;
+	
+}
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="bt_regresar">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>550</y>
+       <width>141</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Regresar</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../imagenes/pngfind.com-back-png-1934895.png</normaloff>../imagenes/pngfind.com-back-png-1934895.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnempresa">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>310</y>
+       <width>201</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Punto de atencion</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../imagenes/escritura.png</normaloff>../imagenes/escritura.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelpunto">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>0</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Punto atencion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelescriactivo">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Escritorios activos</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelescridesactivo">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Escritorios Inactivos</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labelclienteespera">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>110</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Clientes en espera</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempopromedioespera">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>150</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo promedio de espera</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempominespera">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>220</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo min espera</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempomaxespera">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo max de espera </string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_21">
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>360</y>
+       <width>200</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>POR ESCRITORIO</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempominatencion">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>330</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo min atencion</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempomaxatencion">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>290</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo max atencion</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnporescritorio">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>420</y>
+       <width>141</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+background-color: rgb(18, 82, 200);
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+	
+}
+
+QPushButton:hover{
+background-color: white;
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+
+font: 75 11pt &quot;Arial Black&quot;;
+}</string>
+     </property>
+     <property name="text">
+      <string>Escritorios</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../imagenes/escritura.png</normaloff>../imagenes/escritura.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>32</width>
+       <height>32</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QLabel" name="labeltiempopromedioatencion">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>250</y>
+       <width>400</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>400</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>200</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Tiempo promedio de atencion</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="textEditinfo">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>400</y>
+       <width>611</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="html">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Arial'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
